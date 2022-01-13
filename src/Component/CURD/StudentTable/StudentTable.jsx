@@ -86,7 +86,7 @@ export function StudentTable(props) {
         </tbody>
       </table>
 
-      <button onClick={() => handleClick()}>Click{count}</button>
+      {/* <button onClick={() => handleClick()}>Click{count}</button> */}
     </div>
   );
 }
