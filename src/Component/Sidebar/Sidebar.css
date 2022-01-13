@@ -1,0 +1,20 @@
+.sidebar {
+  background-color: aquamarine;
+  min-height: 100vh;
+  text-align: center;
+  width: 200px;
+  position: fixed;
+}
+a {
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+.sidebar li {
+  list-style-type: none;
+  padding: 10px 30px;
+  border-bottom: 1px solid rgb(42, 187, 37);
+}
+.sidebar li:hover a {
+  color: rgb(42, 187, 37);
+}

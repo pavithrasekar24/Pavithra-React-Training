@@ -1,0 +1,22 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+table tr td,
+tr th {
+  border: 1px solid;
+  padding: 5px 8px;
+}
+.edit-btn {
+  background-color: rgb(194, 224, 58);
+  width: 80px;
+}
+.delete-btn {
+  background-color: #ff5e00;
+  width: 80px;
+}
+.student-table {
+  background-color: #c9f1db;
+  margin: 20px;
+  padding: 20px;
+}

@@ -1,0 +1,10 @@
+.context-content,
+.context-inner {
+  background-color: rgb(179 166 178);
+  margin: 20px;
+  padding: 20px;
+}
+.context-inner {
+  background-color: rgb(173, 42, 162);
+  text-align: center;
+}
