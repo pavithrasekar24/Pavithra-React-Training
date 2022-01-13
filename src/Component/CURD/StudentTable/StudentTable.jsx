@@ -44,6 +44,16 @@ export function StudentTable(props) {
         console.log(err);
       });
   };
+  let handleEdit = (item) => {
+    props.history.push({
+      pathname: '/student-form',
+      state: {
+        details: { ...item },
+        id: item.id,
+        isEdit: true,
+      },
+    });
+  };
   return (
     <div className="student-table">
       <h4>Student Table</h4>
@@ -63,13 +73,18 @@ export function StudentTable(props) {
           {tableDetails.length > 0
             ? tableDetails.map((item) => {
                 return (
-                  <tr>
+                  <tr key={item.id}>
                     <td>{item.id}</td>
                     <td>{item.name}</td>
                     <td>{item.age}</td>
                     <td>{item.city}</td>
                     <td>
-                      <button className="edit-btn">Edit</button>
+                      <button
+                        className="edit-btn"
+                        onClick={() => handleEdit(item)}
+                      >
+                        Edit
+                      </button>
                     </td>
                     <td>
                       <button

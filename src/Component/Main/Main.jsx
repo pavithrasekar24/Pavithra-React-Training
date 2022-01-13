@@ -28,7 +28,7 @@ export function Main() {
               <Route exact path="/hooks" component={Hooks} />
               <Route exact path="/lifecycle" component={Lifecycle} />
               <Route exact path="/context" component={ContextTask} />
-              <Route exact path="/api-curd" component={StudentForm} />
+              <Route exact path="/student-form" component={StudentForm} />
               <Route exact path="/student-table" component={StudentTable} />
               <Route component={NotFound} />
             </Switch>

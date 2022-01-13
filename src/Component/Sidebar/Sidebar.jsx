@@ -19,7 +19,7 @@ export function Sidebar() {
     { id: 4, path: '/hooks', label: 'Hooks' },
     { id: 5, path: '/lifecycle', label: 'Lifecycle' },
     { id: 6, path: '/context', label: 'Context' },
-    { id: 7, path: '/api-curd', label: 'CURD Operation (axios)' },
+    { id: 7, path: '/student-form', label: 'CURD Operation (axios)' },
   ];
   return (
     <div className="sidebar">

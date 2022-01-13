@@ -1,11 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 export function UpdateValue(props) {
+  const [id, setId] = useState(0);
+  const [isEdit, setIsEdit] = useState(false);
   const [details, setDetails] = useState({
     name: '',
     age: '',
     city: '',
   });
+
+  useEffect(() => {
+    console.log('mount-form', props);
+    if (
+      props &&
+      props.location &&
+      props.location.state &&
+      props.location.state.details
+    ) {
+      let { details, id, isEdit } = props.location.state;
+      setDetails(details); //getapi details
+      setId(id);
+      setIsEdit(isEdit);
+    }
+  }, []);
   let handleChange = (e) => {
     let { name, value } = e.target;
     setDetails({ ...details, [name]: value });
@@ -13,8 +30,26 @@ export function UpdateValue(props) {
   let handleSubmit = (e) => {
     console.log('details', details);
     e.preventDefault();
-    //save
+    //save-axios.post
     saveDetails();
+  };
+  let handleUpdate = (e) => {
+    e.preventDefault();
+    //update-axios.put
+    updateDetails();
+  };
+
+  let updateDetails = () => {
+    let url = 'https://61dd4f33f60e8f00176686f2.mockapi.io/api/student';
+    axios
+      .put(url + '/' + id, details)
+      .then((response) => {
+        alert(details.name + ' ' + details.age + '  updated');
+        props.history.push('/student-table');
+      })
+      .catch((error) => {
+        alert('not saved');
+      });
   };
 
   let saveDetails = () => {
@@ -40,7 +75,7 @@ export function UpdateValue(props) {
   };
   return (
     <div>
-      <form onSubmit={(e) => handleSubmit(e)}>
+      <form onSubmit={(e) => (isEdit ? handleUpdate(e) : handleSubmit(e))}>
         <input
           type="text"
           name="name"
@@ -62,7 +97,7 @@ export function UpdateValue(props) {
           value={details.city}
           onChange={handleChange}
         />
-        <button type="submit"> Submit </button>
+        <button type="submit"> {isEdit ? 'Update' : 'Submit'} </button>
       </form>
     </div>
   );
